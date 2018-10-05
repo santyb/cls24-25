@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+
 /**
  * Generated class for the PlaceHolderPipe pipe.
  *
@@ -12,7 +13,9 @@ export class PlaceHolderPipe implements PipeTransform {
   /**
    * Takes a value and makes it lowercase.
    */
-  transform(value: string, ...args) {
-    return value.toLowerCase();
-  }
+  transform(value: string, valorDefecto: string ="Escribe un texto") {
+    
+        return ( value ) ? value : valorDefecto;
+      }
+    
 }

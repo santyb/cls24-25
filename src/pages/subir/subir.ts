@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ViewController  } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 
 /**
  * Generated class for the SubirPage page.
@@ -8,18 +10,48 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-subir',
   templateUrl: 'subir.html',
 })
 export class SubirPage {
+  titulo: string = "";
+  imagenPreview: string = "";
+  imagen64: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private viewCtrl: ViewController,
+    private camera: Camera) {
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SubirPage');
+  cerrar_modal(){
+    this.viewCtrl.dismiss();
   }
+  mostrar_camara(){
+    const options: CameraOptions = {
+        quality: 50,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE
+      }
+    this.camera.getPicture(options).then((imageData) => {
+     this.imagenPreview = 'data:image/jpeg;base64,' + imageData;
+     this.imagen64 = imageData;
+    }, (err) => {
+     // Handle error
+     console.log( "ERROR EN CAMARA", JSON.stringify(err) );
+    });
+  }
+
+
+
+seleccionar_foto(){
+  console.log("seleccionar foto");
+}
+
+crear_post(){
+  console.log("crear post");
+}
+
 
 }
