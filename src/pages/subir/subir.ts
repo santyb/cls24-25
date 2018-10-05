@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-subir',
-  templateUrl: 'subir.html',
+  templateUrl: 'SubirPage.html',
 })
 export class SubirPage {
   titulo: string = "";

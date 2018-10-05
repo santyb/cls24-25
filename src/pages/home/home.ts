@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { SubirPage } from "../../pages/subir/subir";
 import { AngularFireDatabase } from 'angularfire2/database';
