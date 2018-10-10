@@ -9,8 +9,8 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PipesModule} from '../pipes/pipes.module';
 import { Camera } from '@ionic-native/camera';
-
-
+import { ImagePicker } from '@ionic-native/image-picker'
+import { CargaArchivoProvider} from '../providers/carga-archivo/carga-archivo';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -49,7 +49,9 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    Camera,    
+    Camera,
+    ImagePicker,
+    CargaArchivoProvider,    
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
   
